@@ -19,16 +19,13 @@ public class ShoppingCartTest {
     public void totalPriceTest(){
         //Setup
         Cart cart = new Cart();
-        Cart testCart = new Cart();
         Item item = new Item("Handbag", 10, false, 1);
-        Item item2 = new Item("Handbag", 10, false, 1);
         cart.addItem(item);
-        testCart.addItem(item2);
+    
 
         //Execute
         int result = cart.getTotalPrice();
-        int equals = cart.getTotalPrice();
         //Assert
-        assertEquals(equals, result);
+        assertEquals(10, result);
     }
 }
