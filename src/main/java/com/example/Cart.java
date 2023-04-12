@@ -12,6 +12,17 @@ public class Cart {
     }
 
     public void addItem(Item item){
+        for (Item i : items) {
+            if(i.name == item.name){
+                i.quantity++;
+                int total = i.price * i.quantity;
+                totalPrice += total;
+            }else{
+                int total = item.price * item.quantity;
+                totalPrice += total;
+                items.add(item);
+            }
+        }
         int total = item.price * item.quantity;
         totalPrice += total;
         items.add(item);
@@ -19,5 +30,9 @@ public class Cart {
 
     public int getTotalPrice(){
         return totalPrice;
+    }
+
+    public int getQuantity(Item item){
+        return item.quantity;
     }
 }

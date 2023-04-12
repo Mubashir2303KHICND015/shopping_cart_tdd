@@ -37,7 +37,7 @@ public class ShoppingCartTest {
         cart.addItem(item);
         cart.addItem(item);
         //Execute
-        int result = cart.getQuantity();
+        int result = cart.getQuantity(item);
         //Assert
         assertEquals(2, result);
     }
