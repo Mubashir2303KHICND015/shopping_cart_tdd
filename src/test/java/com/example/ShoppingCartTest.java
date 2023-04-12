@@ -2,6 +2,7 @@ package com.example;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class ShoppingCartTest {
@@ -40,5 +41,20 @@ public class ShoppingCartTest {
         int result = cart.getQuantity(item);
         //Assert
         assertEquals(2, result);
+    }
+
+    @Test
+    public void itemizedListTest(){
+        //Setup
+        String[] expected = {"Handbag -x1 $10","Gum -x1 $25"};
+        Cart cart = new Cart();
+        Item item = new Item("Handbag", 10, false, 1);
+        Item item2 = new Item("Gum", 25, false, 1);
+        cart.addItem(item);
+        cart.addItem(item2);
+        //Execute
+        String[] result = cart.itemizedList(item);
+        //Assert
+        Assert.assertArrayEquals(expected, result);
     }
 }
