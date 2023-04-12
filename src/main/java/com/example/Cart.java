@@ -23,9 +23,6 @@ public class Cart {
                 items.add(item);
             }
         }
-        int total = item.price * item.quantity;
-        totalPrice += total;
-        items.add(item);
     }
 
     public int getTotalPrice(){
@@ -34,5 +31,15 @@ public class Cart {
 
     public int getQuantity(Item item){
         return item.quantity;
+    }
+
+    public List<String> itemizedList(List<Item> itemsArr){
+        System.out.println(itemsArr);
+        List<String> itemsList = new ArrayList<>();
+        for (Item i : itemsArr) {
+            String details = String.format("%s - $dx $%d",i.name, i.quantity, i.price);
+            itemsList.add(details);
+        }
+        return itemsList;
     }
 }

@@ -2,6 +2,9 @@ package com.example;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -46,15 +49,19 @@ public class ShoppingCartTest {
     @Test
     public void itemizedListTest(){
         //Setup
-        String[] expected = {"Handbag -x1 $10","Gum -x1 $25"};
+        List<String> expected = new ArrayList<>();
+        String product1 = "Handbag - 1x $10";
+        String product2 = "Gum - 1x $25";
+        expected.add(product1);
+        expected.add(product2);
         Cart cart = new Cart();
         Item item = new Item("Handbag", 10, false, 1);
         Item item2 = new Item("Gum", 25, false, 1);
         cart.addItem(item);
         cart.addItem(item2);
         //Execute
-        String[] result = cart.itemizedList(item);
+        List<String> result = cart.itemizedList(cart.items);
         //Assert
-        Assert.assertArrayEquals(expected, result);
+        Assert.assertEquals(expected, result);
     }
 }
