@@ -28,4 +28,17 @@ public class ShoppingCartTest {
         //Assert
         assertEquals(10, result);
     }
+
+    @Test
+    public void quantityAdditionTest(){
+        //Setup
+        Cart cart = new Cart();
+        Item item = new Item("Handbag", 10, false, 1);
+        cart.addItem(item);
+        cart.addItem(item);
+        //Execute
+        int result = cart.getQuantity();
+        //Assert
+        assertEquals(2, result);
+    }
 }
